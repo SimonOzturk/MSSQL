@@ -69,7 +69,7 @@ New-PSSession
 
 The New-PSSession cmdlet creates a PowerShell session (PSSession) on a local or remote computer. When you create a PSSession, PowerShell establishes a persistent connection to the remote computer.
 
-Use a PSSession to run multiple commands that share data, such as a function or the value of a variable. To run commands in a PSSession, use the Invoke-Command cmdlet. To use the PSSession to interact directly with a remote computer, use the Enter-PSSession cmdlet. For more information,
+Use a PSSession to run multiple commands that share data, such as a function or the value of a variable. To run commands in a PSSession, use the Invoke-Command cmdlet. To use the PSSession to interact directly with a remote computer, use the Enter-PSSession cmdlet.
 
 You can run commands on a remote computer without creating a PSSession by using the ComputerName parameters of Enter-PSSession or Invoke-Command. When you use the ComputerName parameter, PowerShell creates a temporary connection that is used for the command and is then closed.
 
