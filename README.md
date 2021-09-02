@@ -43,9 +43,13 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 
 #### Install Modules
 
+Downloads one or more modules from a repository, and installs them on the local computer.
+
 ```powershell
 Install-Module -Name 'MSOnline' -Confirm:$false -Force
 ```
+
+Adds modules to the current session.
 
 #### Import Modules
 
@@ -53,48 +57,10 @@ Install-Module -Name 'MSOnline' -Confirm:$false -Force
 Import-Module -Name 'MSOnline'
 ```
 
-### Variables
-
-#### Tenant Variable
-
-```powershell
-$Tenant = Get-Content .\Config.json  | ConvertFrom-Json -AsHashtable
-```
-
 ### Connecting Services
 
-#### Microsoft Online
+#### Microsoft SQL Server
 
 ```powershell
 Connect-MsolService -Credential $Tenant.AzureAD.Admin.Credential
-```
-
-#### Azure Active Directory
-
-```powershell
-Connect-AzureAD -Credential $Tenant.AzureAD.Admin.Credential
-```
-
-#### SharePoint Online
-
-```powershell
-Connect-SPOService -Credential $Tenant.SharePoint.Admin.Credential -Url $Tenant.SharePoint.Admin.Url
-```
-
-#### SharePoint Online PnP (Cross Platform)
-
-```powershell
-Connect-PnPOnline -Url $Tenant.SharePoint.Admin.Url -UseWebLogin 
-```
-
-#### Microsoft Teams
-
-```powershell
-Connect-MicrosoftTeams -Credential $Tenant.Teams.Admin.Credential
-```
-
-#### PowerApps
-
-```powershell
-Add-PowerAppsAccount -Endpoint prod -Username $Tenant.PowerApps.Admin.UserName -Password (ConvertTo-SecureString $Tenant.PowerApps.Admin.Password -AsPlainText -Force )
 ```
