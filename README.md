@@ -46,7 +46,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 Downloads one or more modules from a repository, and installs them on the local computer.
 
 ```powershell
-Install-Module -Name 'MSOnline' -Confirm:$false -Force
+Install-Module -Name 'SqlServer' -Confirm:$false -Force
 ```
 
 Adds modules to the current session.
@@ -54,7 +54,7 @@ Adds modules to the current session.
 #### Import Modules
 
 ```powershell
-Import-Module -Name 'MSOnline'
+Import-Module -Name 'SqlServer'
 ```
 
 ### Connecting Services
