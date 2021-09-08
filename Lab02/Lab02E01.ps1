@@ -32,4 +32,14 @@ $db_ddladmin.AddMember($SQLLogin1)
 $db_datawriter = $AWDB.roles["db_datawriter"]
 $db_datawriter.AddMember($SQLLogin1)
 
-
+#TASK 4
+Import-Module -Name 'SQLServer'
+$Connection = @{
+    ServerInstance = "MIA-SQL"
+    UserName = "SQLLogin1"
+    Password  = 'Pa55w.rd'
+    Database = "AWDB"
+}
+Invoke-SQLCMD @Connection -Query 'Create Table Contacts (ID INT, FirstName NVarChar(50), LastName NVarChar(50))'
+Invoke-SQLCMD @Connection -Query "Insert Contacts Values(1,'John', 'Brown')"
+Invoke-SQLCMD @Connection -Query "SELECT * FROM Contacts"
