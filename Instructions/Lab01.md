@@ -117,13 +117,14 @@ Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer MIA-
 7. Export the policy evaluation data for **MIA-SQL** to an XML file: 
 
 ```powershell
-Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer "MIA-SQL" -OutputXML "D:\Temp\MIA-SQL_Evaluation.xml"
+Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer "MIA-SQL" -OutputXML > "D:\Temp\MIA-SQL_Evaluation.xml"
 ```
 
 8. Export the policy evaluation data for **MIA-SQL\SQL2** to an XML file: 
 
 ```powershell
-Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer "MIA-SQL\SQL2" -OutputXML "D:\Temp\MIA-SQL-SQL2_Evaluation.xml"
+Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer "MIA-SQL\SQL2" -OutputXML > "D:\Temp\MIA-SQL-SQL2_Evaluation.xml"
+```
 
 9. Verify the evaluations of the MIA-SQL and SQL2 instances were saved: 
 
