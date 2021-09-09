@@ -1,6 +1,8 @@
 # https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects
+using namespace System.Reflection
 using namespace Microsoft.SqlServer.Management.Smo
-[System.Reflection.Assembly]::LoadWithPartialname('Microsoft.SQLServer.SMO')
+
+[Assembly]::LoadWithPartialname('Microsoft.SQLServer.SMO')
 
 #LAB 2
 
