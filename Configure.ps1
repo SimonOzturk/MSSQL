@@ -36,3 +36,6 @@ Restart-Service MSSQLSERVER -Force
 
 $Credential = Get-Credential -UserName 'SqlLogin1' -Message "SQL Admin Password"
 $Instance = Get-SqlInstance -Credential $Credential -ServerInstance "127.0.0.1:1433"
+
+
+

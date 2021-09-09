@@ -82,6 +82,13 @@ We will evaluate SQL Server policies using PowerShell
 
 ## Task 1 : SQL Server Policy
 
+> Please make sure you Installed SQL Server Module
+
+```powershell
+Install-Module -Name 'SqlServer'
+Import-Module -Name 'SqlServer'
+```
+
 1. Change the working directory to the folder where the policy files are stored: 
 
 ```powershell
@@ -135,6 +142,7 @@ Get-ChildItem "D:\Temp\*.XML"
 10. Completed Script
 
 ```powershell
+Import-Module -Name 'SqlServer'
 Set-Location "C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Policies"
 Get-ChildItem
 Get-ChildItem "DatabaseEngine\1033\Backup and Data File Location.xml" | Invoke-PolicyEvaluation -TargetServer MIA-SQL
