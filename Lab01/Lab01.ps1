@@ -4,6 +4,8 @@ using namespace Microsoft.SqlServer.Management.Smo
 
 [Assembly]::LoadWithPartialname('Microsoft.SQLServer.SMO')
 
+# Exercise 1
+
 # TASK 1
 $Instance = "MIA-SQL"
 $Server = [Server]::new($Instance)
@@ -12,3 +14,11 @@ $Server.Configuration.Alter()
 $Server.Settings.LoginMode = "Mixed"
 $Server.Settings.Alter()
 Invoke-SqlCmd -Query "Alter Server Configuration SET PROCESS AFFINITY CPU = 0 TO 1"
+
+# Exercise 2
+
+# TASK 1
+Set-Location "C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Policies"
+Set-Location "C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Policies\DatabaseEngine\1033"
+
+

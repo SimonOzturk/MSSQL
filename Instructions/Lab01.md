@@ -74,4 +74,63 @@ $Server.Settings.Alter()
 Invoke-SqlCmd -Query "Alter Server Configuration SET PROCESS AFFINITY CPU = 0 TO 1"
 ```
 
+# Exercise 4
+
+We will evaluate SQL Server policies using PowerShell
+
+> 30 minitues
+
+## Task 1 : SQL Server Policy
+
+1. Change the working directory to the folder where the policy files are stored: 
+
+```powershell
+Set-Location "C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Policies"
+```
+
+2. List the folders in the policies directory:
+
+```powershell
+Get-ChildItem
+```
+
+3. Default policy files exist for the **Analysis Services**, **Reporting Services** and **Database Engine** features in each of the listed folders.
+
+4. List the policy files for the Database Engine feature: 
+
+```powershell
+Get-ChildItem "DatabaseEngine\1033"
+```
+
+5. Evaluate **MIA-SQL** with the "backup and data file location" policy file: 
+
+```powershell
+Get-ChildItem "DatabaseEngine\1033\Backup and Data File Location.xml" | Invoke-PolicyEvaluation -TargetServer MIA-SQL
+```
+
+6. Evaluate **MIA-SQL** with all the Database Engine policy files: 
+
+```powershell
+Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer MIA-SQL
+```
+
+7. Export the policy evaluation data for **MIA-SQL** to an XML file: 
+
+```powershell
+Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer "MIA-SQL" -OutputXML "D:\Temp\MIA-SQL_Evaluation.xml"
+```
+
+8. Export the policy evaluation data for **MIA-SQL\SQL2** to an XML file: 
+
+```powershell
+Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer "MIA-SQL\SQL2" -OutputXML "D:\Temp\MIA-SQL-SQL2_Evaluation.xml"
+
+9. Verify the evaluations of the MIA-SQL and SQL2 instances were saved: 
+
+```powershell
+Get-ChildItem "D:\Temp\*.XML"
+```
+
+10. Exit
+
 
