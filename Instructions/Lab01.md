@@ -131,6 +131,16 @@ Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer "MIA
 Get-ChildItem "D:\Temp\*.XML"
 ```
 
-10. Exit
+10. Completed Script
 
+```powershell
+Set-Location "C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Policies"
+Get-ChildItem
+Get-ChildItem "DatabaseEngine\1033\Backup and Data File Location.xml" | Invoke-PolicyEvaluation -TargetServer MIA-SQL
+Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer "MIA-SQL"
+New-Item -Path "D:\" -Name "Temp" -ItemType Directory
+Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer "MIA-SQL" -OutputXML > "D:\Temp\MIA-SQL_Evaluation.xml"
+Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer "MIA-SQL\SQL2" -OutputXML > "D:\Temp\MIA-SQL-SQL2_Evaluation.xml"
+Get-ChildItem "D:\Temp\*.XML"
+```
 

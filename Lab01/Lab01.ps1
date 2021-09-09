@@ -18,7 +18,14 @@ Invoke-SqlCmd -Query "Alter Server Configuration SET PROCESS AFFINITY CPU = 0 TO
 # Exercise 2
 
 # TASK 1
-Set-Location "C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Policies"
+
 Set-Location "C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Policies\DatabaseEngine\1033"
 
-
+Set-Location "C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Policies"
+Get-ChildItem
+Get-ChildItem "DatabaseEngine\1033\Backup and Data File Location.xml" | Invoke-PolicyEvaluation -TargetServer MIA-SQL
+Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer "MIA-SQL"
+New-Item -Path "D:\" -Name "Temp" -ItemType Directory
+Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer "MIA-SQL" -OutputXML > "D:\Temp\MIA-SQL_Evaluation.xml"
+Get-ChildItem "DatabaseEngine\1033" | Invoke-PolicyEvaluation -TargetServer "MIA-SQL\SQL2" -OutputXML > "D:\Temp\MIA-SQL-SQL2_Evaluation.xml"
+Get-ChildItem "D:\Temp\*.XML"
