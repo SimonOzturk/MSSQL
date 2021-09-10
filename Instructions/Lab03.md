@@ -126,7 +126,17 @@ Set-Location "SQLServer:\SQL\$Instance\DEFAULT\Databases"
 2. Perform a backup of the AdventureWorks2017 database using the SQLServer Module backup command.
 ```powershell
 Backup-SqlDatabase -Database "AdventureWorks2017" -BackupFile "D:\Backup\AdventureWorks2017.bak" -CompressionOption On
-Restore-SQLDatabase -Database $Database -BackupFile "D:\Backup\AdventureWorks2017.bak"
+```
+
+> This command backs up all databases on the server instance 'Computer\Instance' to the default backup location. The backup files are named <database name>.bak.
+
+```powershell
+ Get-ChildItem  | Backup-SqlDatabase
+```
+
+3. Perform a restore of the AdventureWorks2017 database using the SQLServer Module backup command.
+```powershell
+Restore-SQLDatabase -Database "AdventureWorks2017" -BackupFile "D:\Backup\AdventureWorks2017.bak"
 ```
 
 

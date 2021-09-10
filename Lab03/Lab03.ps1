@@ -27,6 +27,8 @@ $DB.SetOwner('Adventureworks\Student')
 
 Set-Location "SQLSERVER:\SQL\$Instance\DEFAULT\Databases"
 
-Backup-SqlDatabase -Database "AdventureWorks2017" -BackupFile "D:\Backup\AdventureWorks2017.bak"
+Backup-SqlDatabase -Database "AdventureWorks2017" -BackupFile "D:\Backup\AdventureWorks2017.bak" -CompressionOption On
+
 Restore-SQLDatabase -Database "AdventureWorks2017" -BackupFile "D:\Backup\AdventureWorks2017.bak"
 
+Get-ChildItem  | Backup-SqlDatabase
