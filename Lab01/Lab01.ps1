@@ -4,7 +4,7 @@ using namespace Microsoft.SqlServer.Management.Smo
 
 [Assembly]::LoadWithPartialname('Microsoft.SQLServer.SMO')
 
-# Exercise 1
+# Exercise 3
 
 # TASK 1
 $Instance = "MIA-SQL"
@@ -15,7 +15,7 @@ $Server.Settings.LoginMode = "Mixed"
 $Server.Settings.Alter()
 Invoke-SqlCmd -Query "Alter Server Configuration SET PROCESS AFFINITY CPU = 0 TO 1"
 
-# Exercise 2
+# Exercise 4
 
 # TASK 1
 
