@@ -1,0 +1,16 @@
+{
+    "Imports": [
+        "SqlServer"
+    ],
+    "Servers": [
+        "MIA-SQL"
+    ],
+    "Policy": {
+        "RecoveryModel": "Full"
+    },
+    "Template":{
+        "Roles":[
+
+        ]
+    }
+}
