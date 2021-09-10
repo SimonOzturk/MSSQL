@@ -113,6 +113,8 @@ $DB.RecoveryModel = "Full"
 $DB.Alter()
 
 $DB.SetOwner('Adventureworks\Administrator')
+
+NOTE : FILE SIZES AND AUTOG.
 ```
 
 ## Task 3 : Backup / Restore Database
